@@ -20,21 +20,21 @@ Check out [this Loom](https://www.loom.com/share/ee1a64278cc8498893fa508803c2f39
 
 ## Core Tasks
 1. Add a grid showing the first 4 photos
-  - [ ] Include a label in the corner that can easily be customised with props (label, colour, icon)
+   - [ ] Include a label in the corner that can easily be customised with props (label, colour, icon)
 2. Clicking on a photo will open up the full page photo gallery
-  - [ ] Bonus points - animate the opening/closing with CSS only
+   - [ ] Bonus points - animate the opening/closing with CSS only
 3. Lay out the photo sections as per our site
-  - [ ] Section title on the side
-  - [ ] Responsive layout for tablet/mobile
-  - [ ] Follow the same grid layout if you can
-  - [ ] Include a close button
+   - [ ] Section title on the side
+   - [ ] Responsive layout for tablet/mobile
+   - [ ] Follow the same grid layout if you can
+   - [ ] Include a close button
 4. Bonus: add a navigation section on top
-  - [ ] Scrolls to the clicked section
-  - [ ] Recommended: set up a React Context to store the position
-  - [ ] Highlights the selected section as it is scrolled into view
+   - [ ] Scrolls to the clicked section
+   - [ ] Recommended: set up a React Context to store the position
+   - [ ] Highlights the selected section as it is scrolled into view
 5. Bonus: videos
-  - [ ] Use the thumbnail in the grid
-  - [ ] Open the video in a modal
+   - [ ] Use the thumbnail in the grid
+   - [ ] Open the video in a modal
 
 ## Deliverables
 - [ ] Code branch with regular commits
