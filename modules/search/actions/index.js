@@ -8,9 +8,3 @@ export const searchRetreats = async ({ params }) => {
     `${API_URL}/retreats/search?${stringifyQuery(params)}`
   )
 }
-
-export const getRetreat = async ({ slug }) => {
-  return get(
-    `${API_URL}/retreats/${slug}`
-  )
-}
