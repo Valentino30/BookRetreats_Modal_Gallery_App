@@ -1,4 +1,4 @@
-import Icon from "../Icon";
+import Icon from "@/modules/shared/components/Icon";
 
 const FeaturedImages = ({ images, label = "", onImageClick }) => {
   const featuredPhotos = images.slice(0, 4);

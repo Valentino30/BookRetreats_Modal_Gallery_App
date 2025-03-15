@@ -18,6 +18,8 @@ const RetreatPage = ({ retreat }) => {
       <GalleryModal
         isOpen={isGalleryModalOpen}
         retreatImages={retreat.photos}
+        foodImages={retreat.foodPhotos}
+        reviewsImages={retreat.reviewPhotos}
         onClose={() => setIsGalleryModalOpen(false)}
       />
     </div>
