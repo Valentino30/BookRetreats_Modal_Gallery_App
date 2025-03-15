@@ -1,4 +1,6 @@
-const FeaturedPhotos = ({ photos }) => {
+import Icon from "../Icon";
+
+const FeaturedPhotos = ({ photos, label }) => {
   const featuredPhotos = photos.slice(0, 4);
 
   const getColumnSpan = (index) => {
@@ -23,8 +25,14 @@ const FeaturedPhotos = ({ photos }) => {
           key={index}
           className={`${getColumnSpan(index)} ${getRoundedBorder(
             index
-          )} overflow-hidden transition-transform duration-300 hover:scale-[1.02]`}
+          )} overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]`}
         >
+          {index === 0 && (
+            <div className="absolute top-0 left-0 bg-green-500 text-white text-sm font-semibold w-fit px-3 py-3 rounded-br-lg flex items-center gap-2">
+              <Icon name="eco" />
+              {label.toUpperCase()}
+            </div>
+          )}
           <img
             alt={`retreat photo ${index + 1}`}
             className="w-full h-full object-cover"
