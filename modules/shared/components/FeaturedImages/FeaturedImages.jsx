@@ -1,7 +1,7 @@
 import Icon from "../Icon";
 
-const FeaturedPhotos = ({ photos, label }) => {
-  const featuredPhotos = photos.slice(0, 4);
+const FeaturedImages = ({ images, label = "", onImageClick }) => {
+  const featuredPhotos = images.slice(0, 4);
 
   const getColumnSpan = (index) => {
     if (index === 0) return "md:col-span-3 md:row-span-3";
@@ -27,13 +27,14 @@ const FeaturedPhotos = ({ photos, label }) => {
             index
           )} overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]`}
         >
-          {index === 0 && (
+          {label && index === 0 && (
             <div className="absolute top-0 left-0 bg-green-500 text-white text-sm font-semibold w-fit px-3 py-3 rounded-br-lg flex items-center gap-2">
               <Icon name="eco" />
               {label.toUpperCase()}
             </div>
           )}
           <img
+            onClick={onImageClick}
             alt={`retreat photo ${index + 1}`}
             className="w-full h-full object-cover"
             src={`https://BookRetreats.com${photo.url}`}
@@ -44,4 +45,4 @@ const FeaturedPhotos = ({ photos, label }) => {
   );
 };
 
-export default FeaturedPhotos;
+export default FeaturedImages;
