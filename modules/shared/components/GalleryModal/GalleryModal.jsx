@@ -14,8 +14,8 @@ const GalleryModal = ({ retreat }) => {
       <FeaturedImagesGrid images={retreat.photos} onImageClick={() => setIsFullWidthModalOpen(true)} />
       <FullWidthModal isOpen={isFullWidthModalOpen} onClose={() => setIsFullWidthModalOpen(false)}>
         {!!retreat.photos.length && <MasonryImageGird title="Retreat Photos" images={retreat.photos} />}
-        {!!retreat.foodPhotos.length && <MasonryImageGird title="Review Photos" images={retreat.foodPhotos} />}
-        {!!retreat.reviewPhotos.length && <MasonryImageGird title="Food Photos" images={retreat.reviewPhotos} />}
+        {!!retreat.foodPhotos.length && <MasonryImageGird title="Food Photos" images={retreat.foodPhotos} />}
+        {!!retreat.reviewPhotos.length && <MasonryImageGird title="Reviews Photos" images={retreat.reviewPhotos} />}
       </FullWidthModal>
     </div>
   );
