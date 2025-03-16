@@ -1,6 +1,6 @@
-import Icon from "@/modules/shared/components/Icon";
+import { ImageLabel } from "@/modules/shared/components/ImageLabel";
 
-const FeaturedImagesGrid = ({ images, label = "", onImageClick }) => {
+const FeaturedImagesGrid = ({ images, onImageClick }) => {
   const featuredImages = images.slice(0, 4);
 
   const getColumnSpan = (index) => {
@@ -34,11 +34,8 @@ const FeaturedImagesGrid = ({ images, label = "", onImageClick }) => {
             index
           )} overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]`}
         >
-          {label && index === 0 && (
-            <div className="absolute top-0 left-0 bg-green-500 text-white text-sm font-semibold px-3 py-3 rounded-br-lg flex items-center gap-2">
-              <Icon name="eco" />
-              {label.toUpperCase()}
-            </div>
+          {index === 0 && (
+            <ImageLabel labelIcon="eco" labelColor="bg-green-500" label="Bookretreats are certified carbon neutral" />
           )}
           <img
             onClick={onImageClick}
