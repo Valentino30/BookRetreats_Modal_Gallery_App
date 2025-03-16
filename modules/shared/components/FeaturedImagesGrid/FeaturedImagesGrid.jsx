@@ -3,7 +3,7 @@ import { ImageLabel } from "@/modules/shared/components/ImageLabel";
 const FeaturedImagesGrid = ({ images, onImageClick }) => {
   const featuredImages = images.slice(0, 4);
 
-  const getColumnSpan = (index) => {
+  const getCustomSpan = (index) => {
     const spans = {
       0: "md:col-span-3 md:row-span-3",
       1: "md:col-span-2 md:row-span-2",
@@ -30,7 +30,7 @@ const FeaturedImagesGrid = ({ images, onImageClick }) => {
       {featuredImages.map((image, index) => (
         <div
           key={index}
-          className={`${getColumnSpan(index)} ${getRoundedBorder(
+          className={`${getCustomSpan(index)} ${getRoundedBorder(
             index
           )} overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]`}
         >

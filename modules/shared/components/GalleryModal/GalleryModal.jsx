@@ -5,17 +5,16 @@ import { FullWidthModal } from "@/modules/shared/components/FullWidthModal";
 import { MasonryImageGird } from "@/modules/shared/components/MasonryImageGird";
 import { FeaturedImagesGrid } from "@/modules/shared/components/FeaturedImagesGrid";
 
-const GalleryModal = ({ retreat }) => {
+const GalleryModal = ({ retreatImages, foodImages, reviewsImages }) => {
   const [isFullWidthModalOpen, setIsFullWidthModalOpen] = useState(false);
 
   return (
     <div className="container">
-      <h1 className="text-3xl font-bold mb-8">{retreat.title}</h1>
-      <FeaturedImagesGrid images={retreat.photos} onImageClick={() => setIsFullWidthModalOpen(true)} />
+      <FeaturedImagesGrid images={retreatImages} onImageClick={() => setIsFullWidthModalOpen(true)} />
       <FullWidthModal isOpen={isFullWidthModalOpen} onClose={() => setIsFullWidthModalOpen(false)}>
-        {!!retreat.photos.length && <MasonryImageGird title="Retreat Photos" images={retreat.photos} />}
-        {!!retreat.foodPhotos.length && <MasonryImageGird title="Food Photos" images={retreat.foodPhotos} />}
-        {!!retreat.reviewPhotos.length && <MasonryImageGird title="Reviews Photos" images={retreat.reviewPhotos} />}
+        {!!retreatImages.length && <MasonryImageGird title="Retreat Photos" images={retreatImages} />}
+        {!!reviewsImages.length && <MasonryImageGird title="Reviews Photos" images={reviewsImages} />}
+        {!!foodImages.length && <MasonryImageGird title="Food Photos" images={foodImages} />}
       </FullWidthModal>
     </div>
   );
