@@ -2,26 +2,26 @@
 
 import { useState } from "react";
 import { FullWidthModal } from "@/modules/shared/components/FullWidthModal";
-import { FeaturedImages } from "@/modules/shared/components/FeaturedImages";
 import { MasonryImageGird } from "@/modules/shared/components/MasonryImageGird";
+import { FeaturedImagesGrid } from "@/modules/shared/components/FeaturedImagesGrid";
 
 const RetreatPage = ({ retreat }) => {
-  const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false);
+  const [isFullWidthModalOpen, setIsFullWidthModalOpen] = useState(false);
 
   return (
     <div className="container p-16 mx-auto">
       <h1 className="text-3xl font-bold mb-8">{retreat.title}</h1>
-      <FeaturedImages
+      <FeaturedImagesGrid
         images={retreat.photos}
-        onImageClick={() => setIsGalleryModalOpen(true)}
+        onImageClick={() => setIsFullWidthModalOpen(true)}
         label={"Bookretreats are certified carbon neutral"}
       />
       <FullWidthModal
-        isOpen={isGalleryModalOpen}
+        isOpen={isFullWidthModalOpen}
         retreatImages={retreat.photos}
         foodImages={retreat.foodPhotos}
         reviewsImages={retreat.reviewPhotos}
-        onClose={() => setIsGalleryModalOpen(false)}
+        onClose={() => setIsFullWidthModalOpen(false)}
       >
         {!!retreat.photos.length && <MasonryImageGird title="Retreat Photos" images={retreat.photos} />}
         {!!retreat.foodPhotos.length && <MasonryImageGird title="Review Photos" images={retreat.foodPhotos} />}
