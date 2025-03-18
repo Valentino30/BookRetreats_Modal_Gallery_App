@@ -1,7 +1,7 @@
 import Icon from "@/modules/shared/components/Icon";
 import { ImageLabel } from "@/modules/shared/components/ImageLabel";
 
-const FeaturedContentGrid = ({ featuredImage, featuredVideo, otherImages, onContentClick }) => {
+const FeaturedContentGrid = ({ featuredImage, featuredVideo, otherImages, onImageClick, onVideoClick }) => {
   const featuredContent = [
     { url: featuredImage, isFeaturedImage: true },
     { url: featuredVideo.thumbnail, isFeaturedVideo: true },
@@ -42,13 +42,13 @@ const FeaturedContentGrid = ({ featuredImage, featuredVideo, otherImages, onCont
             <ImageLabel labelIcon="eco" labelColor="bg-green-500" label="Bookretreats are certified carbon neutral" />
           )}
           <img
-            onClick={onContentClick}
+            onClick={onImageClick}
             alt={`featured content ${index + 1}`}
             className="w-full h-full object-cover"
             src={`https://BookRetreats.com${content.url}`}
           />
           {!!content.isFeaturedVideo && (
-            <div onClick={onContentClick} className="absolute inset-0 flex items-center justify-center">
+            <div onClick={onVideoClick} className="absolute inset-0 flex items-center justify-center">
               <Icon name="play" width="5rem" height="5rem" />
             </div>
           )}

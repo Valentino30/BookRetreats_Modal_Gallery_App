@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { VideoPlayer } from "@/modules/shared/components/VideoPlayer";
 import { FullWidthModal } from "@/modules/shared/components/FullWidthModal";
 import { MasonryImageGird } from "@/modules/shared/components/MasonryImageGird";
 import { FeaturedContentGrid } from "@/modules/shared/components/FeaturedContentGrid";
 
 const GalleryModal = ({ retreatImages, foodImages, reviewsImages, featuredVideo, featuredImage }) => {
-  const [isFullWidthModalOpen, setIsFullWidthModalOpen] = useState(false);
+  const [isFullWidthImageModalOpen, setIsFullWidthImageModalOpen] = useState(false);
+  const [isFullWidthVideoModalOpen, setIsFullWidthVideoModalOpen] = useState(false);
 
   return (
     <div className="container">
@@ -14,12 +16,18 @@ const GalleryModal = ({ retreatImages, foodImages, reviewsImages, featuredVideo,
         otherImages={retreatImages}
         featuredVideo={featuredVideo}
         featuredImage={featuredImage}
-        onContentClick={() => setIsFullWidthModalOpen(true)}
+        onImageClick={() => setIsFullWidthImageModalOpen(true)}
+        onVideoClick={() => setIsFullWidthVideoModalOpen(true)}
       />
-      <FullWidthModal isOpen={isFullWidthModalOpen} onClose={() => setIsFullWidthModalOpen(false)}>
+      {/* Image Modal */}
+      <FullWidthModal isOpen={isFullWidthImageModalOpen} onClose={() => setIsFullWidthImageModalOpen(false)}>
         {!!retreatImages.length && <MasonryImageGird title="Retreat Photos" images={retreatImages} />}
         {!!reviewsImages.length && <MasonryImageGird title="Reviews Photos" images={reviewsImages} />}
         {!!foodImages.length && <MasonryImageGird title="Food Photos" images={foodImages} />}
+      </FullWidthModal>
+      {/* Video Modal */}
+      <FullWidthModal isOpen={isFullWidthVideoModalOpen} onClose={() => setIsFullWidthVideoModalOpen(false)}>
+        {!!featuredVideo.id && <VideoPlayer video={featuredVideo} />}
       </FullWidthModal>
     </div>
   );
