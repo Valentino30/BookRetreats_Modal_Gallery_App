@@ -6,8 +6,10 @@ const RetreatPage = ({ retreat }) => {
       <h1 className="text-3xl font-bold mb-8">{retreat.title}</h1>
       <GalleryModal
         retreatImages={retreat.photos}
-        reviewsImages={retreat.reviewPhotos}
         foodImages={retreat.foodPhotos}
+        reviewsImages={retreat.reviewPhotos}
+        featuredVideo={retreat.featuredVideo}
+        featuredImage={retreat.featuredPhoto}
       />
     </div>
   );

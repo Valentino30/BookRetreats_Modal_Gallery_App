@@ -3,14 +3,19 @@
 import { useState } from "react";
 import { FullWidthModal } from "@/modules/shared/components/FullWidthModal";
 import { MasonryImageGird } from "@/modules/shared/components/MasonryImageGird";
-import { FeaturedImagesGrid } from "@/modules/shared/components/FeaturedImagesGrid";
+import { FeaturedContentGrid } from "@/modules/shared/components/FeaturedContentGrid";
 
-const GalleryModal = ({ retreatImages, foodImages, reviewsImages }) => {
+const GalleryModal = ({ retreatImages, foodImages, reviewsImages, featuredVideo, featuredImage }) => {
   const [isFullWidthModalOpen, setIsFullWidthModalOpen] = useState(false);
 
   return (
     <div className="container">
-      <FeaturedImagesGrid images={retreatImages} onImageClick={() => setIsFullWidthModalOpen(true)} />
+      <FeaturedContentGrid
+        otherImages={retreatImages}
+        featuredVideo={featuredVideo}
+        featuredImage={featuredImage}
+        onContentClick={() => setIsFullWidthModalOpen(true)}
+      />
       <FullWidthModal isOpen={isFullWidthModalOpen} onClose={() => setIsFullWidthModalOpen(false)}>
         {!!retreatImages.length && <MasonryImageGird title="Retreat Photos" images={retreatImages} />}
         {!!reviewsImages.length && <MasonryImageGird title="Reviews Photos" images={reviewsImages} />}

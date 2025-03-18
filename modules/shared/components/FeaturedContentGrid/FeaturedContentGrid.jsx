@@ -1,7 +1,12 @@
+import Icon from "@/modules/shared/components/Icon";
 import { ImageLabel } from "@/modules/shared/components/ImageLabel";
 
-const FeaturedImagesGrid = ({ images, onImageClick }) => {
-  const featuredImages = images.slice(0, 4);
+const FeaturedContentGrid = ({ featuredImage, featuredVideo, otherImages, onContentClick }) => {
+  const featuredContent = [
+    { url: featuredImage, isFeaturedImage: true },
+    { url: featuredVideo.thumbnail, isFeaturedVideo: true },
+    ...otherImages.slice(1, 3),
+  ];
 
   const getCustomSpan = (index) => {
     const spans = {
@@ -27,26 +32,30 @@ const FeaturedImagesGrid = ({ images, onImageClick }) => {
 
   return (
     <div className="grid grid-cols-1 grid-rows-4 gap-4 md:grid-cols-5 md:grid-rows-2 md:h-[500px]">
-      {featuredImages.map((image, index) => (
+      {featuredContent.map((content, index) => (
         <div
           key={index}
-          className={`${getCustomSpan(index)} ${getRoundedBorder(
-            index
-          )} overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]`}
+          className={`${getCustomSpan(index)} ${getRoundedBorder(index)} 
+          overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]`}
         >
-          {index === 0 && (
+          {!!content.isFeaturedImage && (
             <ImageLabel labelIcon="eco" labelColor="bg-green-500" label="Bookretreats are certified carbon neutral" />
           )}
           <img
-            onClick={onImageClick}
-            alt={`featured image ${index + 1}`}
+            onClick={onContentClick}
+            alt={`featured content ${index + 1}`}
             className="w-full h-full object-cover"
-            src={`https://BookRetreats.com${image.url}`}
+            src={`https://BookRetreats.com${content.url}`}
           />
+          {!!content.isFeaturedVideo && (
+            <div onClick={onContentClick} className="absolute inset-0 flex items-center justify-center">
+              <Icon name="play" width="5rem" height="5rem" />
+            </div>
+          )}
         </div>
       ))}
     </div>
   );
 };
 
-export default FeaturedImagesGrid;
+export default FeaturedContentGrid;
