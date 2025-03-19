@@ -11,11 +11,7 @@ const MasonryImageGird = ({ title, images }) => {
       <div className="md:col-span-2 grid grid-cols-1 gap-4 md:grid-cols-3 grid-auto-flow-dense">
         {images.map((image, index) => (
           <div key={index} className={`${getRandomSpan(index)}`}>
-            <img
-              alt={`masonry image ${index + 1}`}
-              src={`https://BookRetreats.com${image.url}`}
-              className="w-full h-full object-cover rounded-lg"
-            />
+            <img src={image.url} alt={`masonry image ${index + 1}`} className="w-full h-full object-cover rounded-lg" />
           </div>
         ))}
       </div>

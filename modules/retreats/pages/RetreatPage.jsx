@@ -1,6 +1,7 @@
+import { retreat } from "@/modules/shared/consts";
 import { GalleryModal } from "@/modules/shared/components/GalleryModal";
 
-const RetreatPage = ({ retreat }) => {
+const RetreatPage = () => {
   return (
     <div className="container p-16 mx-auto">
       <h1 className="text-3xl font-bold mb-8">{retreat.title}</h1>

@@ -42,10 +42,10 @@ const FeaturedContentGrid = ({ featuredImage, featuredVideo, otherImages, onImag
             <ImageLabel labelIcon="eco" labelColor="bg-green-500" label="Bookretreats are certified carbon neutral" />
           )}
           <img
+            src={content.url}
             onClick={onImageClick}
             alt={`featured content ${index + 1}`}
             className="w-full h-full object-cover"
-            src={`https://BookRetreats.com${content.url}`}
           />
           {!!content.isFeaturedVideo && (
             <div onClick={onVideoClick} className="absolute inset-0 flex items-center justify-center">
