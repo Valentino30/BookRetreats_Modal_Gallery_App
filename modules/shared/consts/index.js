@@ -1,3 +1,9 @@
+export const sections = [
+  { id: "Retreat Photos", label: "Retreat" },
+  { id: "Reviews Photos", label: "Reviews" },
+  { id: "Food Photos", label: "Food" },
+];
+
 export const retreat = {
   title: "Retreat Title",
   photos: [

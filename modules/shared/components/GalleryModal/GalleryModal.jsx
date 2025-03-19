@@ -20,7 +20,11 @@ const GalleryModal = ({ retreatImages, foodImages, reviewsImages, featuredVideo,
         onVideoClick={() => setIsFullWidthVideoModalOpen(true)}
       />
       {/* Image Modal */}
-      <FullWidthModal isOpen={isFullWidthImageModalOpen} onClose={() => setIsFullWidthImageModalOpen(false)}>
+      <FullWidthModal
+        withNavigation
+        isOpen={isFullWidthImageModalOpen}
+        onClose={() => setIsFullWidthImageModalOpen(false)}
+      >
         {!!retreatImages.length && <MasonryImageGird title="Retreat Photos" images={retreatImages} />}
         {!!reviewsImages.length && <MasonryImageGird title="Reviews Photos" images={reviewsImages} />}
         {!!foodImages.length && <MasonryImageGird title="Food Photos" images={foodImages} />}
